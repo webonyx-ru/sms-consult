@@ -1,26 +1,26 @@
 =generate-framework($framework)
     @each $key in $framework
-        $type: "padding"
-        $direction: "top"
+        $type: ""
+        $direction: ""
         $val: ""
         $class: ""
 
         @if str_slice($key, 1, 1) == "m"
             $type: "margin"
 
-        @if str_slice($key, 1, 1) == "p"
+        @else if str_slice($key, 1, 1) == "p"
             $type: "padding"
 
         @if str_slice($key, 2, 2) == "b"
             $direction: "bottom"
 
-        @if str_slice($key, 2, 2) == "t"
+        @else if str_slice($key, 2, 2) == "t"
             $direction: "top"
 
-        @if str_slice($key, 2, 2) == "l"
+        @else if str_slice($key, 2, 2) == "l"
             $direction: "left"
 
-        @if str_slice($key, 2, 2) == "r"
+        @else if str_slice($key, 2, 2) == "r"
             $direction: "right"
 
         $val: str_slice($key, 3, -1)

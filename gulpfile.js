@@ -6,7 +6,6 @@ var gulp         = require('gulp'),
     twig         = require('gulp-twig'),
     htmlbeautify = require('gulp-html-beautify'),
     sass         = require("gulp-sass"),
-    spritesmith  = require('gulp.spritesmith'),
     prefix       = require("gulp-autoprefixer"),
     minifyCss    = require('gulp-minify-css'),
     uglify       = require('gulp-uglify'),
@@ -14,7 +13,8 @@ var gulp         = require('gulp'),
     callback     = require('gulp-callback'),
     clean        = require('gulp-clean'),
     notify       = require('gulp-notify'),
-    browserSync  = require('browser-sync');
+    browserSync  = require('browser-sync'),
+    compass      = require('gulp-compass');
 
 /* PRODUCTION PLUGINS ----------------------------------------------------------
  ---------------------------------------------------------------------------- */
@@ -23,7 +23,7 @@ var useref       = require('gulp-useref'),
     gulpif       = require('gulp-if');
 
 /* SOURCES --------------------------------------------------------------------
----------------------------------------------------------------------------- */
+ ---------------------------------------------------------------------------- */
 var sources = {
     html: {
         src: 'app/*.html',
@@ -78,14 +78,14 @@ var onError = function(err) {
 gulp.task('pug', function () {
     gulp.src(sources.pug.src)
         .pipe(plumber({
-          errorHandler: onError
+            errorHandler: onError
         }))
         .pipe(pug({
             pretty: true
         }))
         .pipe(gulp.dest(sources.pug.dist))
         .pipe(browserSync.reload({stream: true}));
-        // .pipe(notify('PUG was compiled'));
+    // .pipe(notify('PUG was compiled'));
 });
 
 /* TWIG --------------------------------------------------------------------- */
@@ -101,40 +101,34 @@ gulp.task('twig', function () {
                 .pipe(htmlbeautify())
                 .pipe(gulp.dest(sources.twig.dist))
                 /*.pipe(callback(function () {
-                    setTimeout(function () {
-                        gulp.src(sources.twig.temp_dist, {read: false})
-                            .pipe(clean());
-                    }, 1000);
-                }))*/
+                 setTimeout(function () {
+                 gulp.src(sources.twig.temp_dist, {read: false})
+                 .pipe(clean());
+                 }, 1000);
+                 }))*/
                 .pipe(browserSync.reload({stream: true}));
-                // .pipe(notify('TWIG was compiled'));
+            // .pipe(notify('TWIG was compiled'));
         }));
 
     return null;
 });
 
-/* SPRITES ------------------------------------------------------------------ */
-gulp.task('sprite', function() {
-    var spriteData;
-
-    spriteData = gulp.src(sources.images.icons.default)
-        .pipe(plumber({
-            errorHandler: onError
+/* COMPASS ------------------------------------------------------------------ */
+gulp.task('compass', function () {
+    gulp.src(sources.sass.watch)
+        .pipe(plumber())
+        .pipe(compass({
+            sass: sources.sass.dist,
+            css: sources.css.dist,
+            js: sources.js.dist,
+            image: 'app/images'
         }))
-        .pipe(spritesmith({
-            retinaSrcFilter: sources.images.icons.retina,
-            retinaImgName: '../images/sprite@2x.png',
-            cssName: '_sprites.sass',
-            imgName: '../images/sprite.png'
-        }));
-
-    spriteData.css.pipe(gulp.dest(sources.sass.dist));
-
-    return spriteData.img.pipe(gulp.dest(sources.images.dist));
+        .pipe(gulp.dest(sources.css.dist))
+        .pipe(browserSync.reload({stream: true}));
 });
 
 /* SASS --------------------------------------------------------------------- */
-gulp.task('sass', ['sprite'], function() {
+gulp.task('sass', ["compass"], function() {
     return gulp.src(sources.sass.src)
         .pipe(plumber({
             errorHandler: onError
@@ -148,7 +142,7 @@ gulp.task('sass', ['sprite'], function() {
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(sources.css.dist))
         .pipe(browserSync.reload({stream: true}));
-        // .pipe(notify('SASS was compiled'));
+    // .pipe(notify('SASS was compiled'));
 });
 
 /* BOWER --------------------------------------------------------------------- */
@@ -190,19 +184,38 @@ gulp.task('clean', function(){
 /* BUILD -------------------------------------------------------------------- */
 gulp.task('build',["clean"], function(){
     setTimeout(function () {
-        gulp.src(sources.html.src)
-            .pipe(useref())
-            .pipe(gulpif('*.js', uglify()))
-            .pipe(gulpif('*.css', minifyCss()))
-            .pipe(useref())
-            .pipe(gulp.dest('dist'));
-            // .pipe(notify('BUILD was ended'));
-
-        gulp.src('app/fonts')
-            .pipe(gulp.dest('dist/fonts'));
-        gulp.src('app/images')
-            .pipe(gulp.dest('dist/images'));
+        gulp.start('build_dist');
+        gulp.start('fonts');
+        gulp.start('images');
     }, 500);
+});
+
+gulp.task('build_dist', function(){
+    gulp.src(sources.html.src)
+        .pipe(useref())
+        .pipe(gulpif('*.js', uglify()))
+        .pipe(gulpif('*.css', minifyCss()))
+        .pipe(useref())
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('fonts', function () {
+    gulp.src([
+        'app/bower_components/uikit/fonts/**',
+        'app/fonts/**'
+    ])
+        .pipe(gulp.dest('dist/fonts'));
+});
+
+gulp.task('images', function () {
+    gulp.src([
+        'app/images/**',
+        '!app/images/icons',
+        '!app/images/icons-2x',
+        '!app/images/icons/**',
+        '!app/images/icons-2x/**'
+    ])
+        .pipe(gulp.dest('dist/images'));
 });
 
 /* DEFAULT AND GULP WATCHER ----------------------------------------------------
@@ -212,7 +225,6 @@ gulp.task('watch', function () {
     gulp.watch(sources.sass.watch, ['sass']);
     // gulp.watch(sources.pug.watch, ["pug"]);
     gulp.watch(sources.twig.watch, ["twig"]);
-    gulp.watch(sources.images.icons.default, ["sass"]);
     gulp.watch(sources.js.watch).on('change', browserSync.reload);
 });
 

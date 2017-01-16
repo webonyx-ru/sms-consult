@@ -1,3 +1,33 @@
+=generate-framework($framework)
+    @each $key in $framework
+        $type: "padding"
+        $direction: "top"
+        $val: ""
+        $class: ""
+
+        @if str_slice($key, 1, 1) == "m"
+            $type: "margin"
+
+        @if str_slice($key, 1, 1) == "p"
+            $type: "padding"
+
+        @if str_slice($key, 2, 2) == "b"
+            $direction: "bottom"
+
+        @if str_slice($key, 2, 2) == "t"
+            $direction: "top"
+
+        @if str_slice($key, 2, 2) == "l"
+            $direction: "left"
+
+        @if str_slice($key, 2, 2) == "r"
+            $direction: "right"
+
+        $val: str_slice($key, 3, -1)
+
+        .#{$key}
+            #{$type}-#{$direction}: #{$val}px
+
 =box_sizing($params)
     -webkit-box-sizing: $params
     -moz-box-sizing: $params

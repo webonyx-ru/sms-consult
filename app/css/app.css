@@ -1,3 +1,7 @@
+.mb10 {
+  margin-bottom: 10px;
+}
+
 .fri {
   display: inline-block;
   vertical-align: middle;
@@ -13,7 +17,7 @@
   height: 79px;
   width: 75px;
 }
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-resolution: 1.5dppx) {
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx) {
   .fri-qube-logo {
     background-image: url('../images/icons-2x-sf4ea60d45b.png');
     background-size: 75px auto;

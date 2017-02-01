@@ -1,8 +1,8 @@
 {
   "name": "gulp_project",
-  "version": "0.0.1",
-  "description": "Gulp first application",
-  "author": "Yuriy Bogatyrenko",
+  "version": "0.1.15",
+  "description": "Gulp project builder",
+  "author": "qube.kz",
   "dependencies": {
   }
 }

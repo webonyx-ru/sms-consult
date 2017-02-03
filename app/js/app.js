@@ -118,6 +118,94 @@
         return options;
     };
 
+    YOURAPPNAME.prototype.popups = function (options) {
+        var _self = this;
+
+        var defaults = {
+            reachElementClass: '.js-popup',
+            closePopupClass: '.js-close-popup',
+            currentElementClass: '.js-open-popup',
+            changePopupClass: '.js-change-popup'
+        };
+
+        options = $.extend({}, options, defaults);
+
+        var plugin = {
+            reachPopups: $(options.reachElementClass),
+            bodyEl: $('body'),
+            topPanelEl: $('.top-panel-wrapper'),
+            htmlEl: $('html'),
+            closePopupEl: $(options.closePopupClass),
+            openPopupEl: $(options.currentElementClass),
+            changePopupEl: $(options.changePopupClass),
+            bodyPos: 0
+        };
+
+        plugin.openPopup = function (popupName) {
+            plugin.reachPopups.filter('[data-popup="' + popupName + '"]').addClass('opened');
+            plugin.bodyEl.css('overflow-y', 'scroll');
+            plugin.topPanelEl.css('padding-right', scrollSettings.width);
+            plugin.htmlEl.addClass('popup-opened');
+        };
+
+        plugin.closePopup = function (popupName) {
+            plugin.reachPopups.filter('[data-popup="' + popupName + '"]').removeClass('opened');
+            setTimeout(function () {
+                plugin.bodyEl.removeAttr('style');
+                plugin.htmlEl.removeClass('popup-opened');
+                plugin.topPanelEl.removeAttr('style');
+            }, 500);
+        };
+
+        plugin.changePopup = function (closingPopup, openingPopup) {
+            plugin.reachPopups.filter('[data-popup="' + closingPopup + '"]').removeClass('opened');
+            plugin.reachPopups.filter('[data-popup="' + openingPopup + '"]').addClass('opened');
+        };
+
+        plugin.init = function () {
+            plugin.bindings();
+        };
+
+        plugin.bindings = function () {
+            plugin.openPopupEl.on('click', function (e) {
+                e.preventDefault();
+                var pop = $(this).attr('data-open-popup');
+                plugin.openPopup(pop);
+            });
+
+            plugin.closePopupEl.on('click', function (e) {
+                var pop;
+                if (this.hasAttribute('data-close-popup')) {
+                    pop = $(this).attr('data-close-popup');
+                } else {
+                    pop = $(this).closest(options.reachElementClass).attr('data-popup');
+                }
+
+                plugin.closePopup(pop);
+            });
+
+            plugin.changePopupEl.on('click', function (e) {
+                var closingPop = $(this).attr('data-closing-popup');
+                var openingPop = $(this).attr('data-opening-popup');
+
+                plugin.changePopup(closingPop, openingPop);
+            });
+
+            plugin.reachPopups.on('click', function (e) {
+                var target = $(e.target);
+                var className = options.reachElementClass.replace('.', '');
+                if (target.hasClass(className)) {
+                    plugin.closePopup($(e.target).attr('data-popup'));
+                }
+            });
+        };
+
+        if (options)
+            plugin.init();
+
+        return plugin;
+    };
+
     var app = new YOURAPPNAME(document);
 
     app.appLoad('loading', function () {

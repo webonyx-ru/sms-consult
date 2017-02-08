@@ -5,6 +5,12 @@
 
         _self.doc = doc;
         _self.window = window;
+        _self.html = _self.doc.querySelector('html');
+        _self.body= _self.doc.body;
+        _self.location = location;
+        _self.hash = location.hash;
+        _self.Object = Object;
+        _self.scrollWidth = "";
 
         _self.bootstrap();
     }
@@ -12,6 +18,7 @@
     YOURAPPNAME.prototype.bootstrap = function() {
         var _self = this;
 
+        _self.scrollWidth = _self.scrollBarWidth();
     };
 
     // Window load types (loading, dom, full)
@@ -38,6 +45,32 @@
             default:
                 callback();
         }
+    };
+
+    // Detect scroll default scrollBar width (return a number)
+    YOURAPPNAME.prototype.scrollBarWidth = function() {
+        var _self = this,
+            outer = _self.doc.createElement("div");
+            outer.style.visibility = "hidden";
+            outer.style.width = "100px";
+            outer.style.msOverflowStyle = "scrollbar";
+
+        _self.body.appendChild(outer);
+
+        var widthNoScroll = outer.offsetWidth;
+
+        outer.style.overflow = "scroll";
+
+        var inner = _self.doc.createElement("div");
+
+        inner.style.width = "100%";
+        outer.appendChild(inner);
+
+        var widthWithScroll = inner.offsetWidth;
+
+        outer.parentNode.removeChild(outer);
+
+        return widthNoScroll - widthWithScroll;
     };
 
     YOURAPPNAME.prototype.initSwitcher = function () {

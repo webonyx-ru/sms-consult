@@ -18,6 +18,7 @@
     YOURAPPNAME.prototype.bootstrap = function() {
         var _self = this;
 
+        // Initialize window scollBar width
         _self.scrollWidth = _self.scrollBarWidth();
     };
 

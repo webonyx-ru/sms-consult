@@ -10,7 +10,7 @@
         _self.location = location;
         _self.hash = location.hash;
         _self.Object = Object;
-        _self.scrollWidth = "";
+        _self.scrollWidth = 0;
 
         _self.bootstrap();
     }

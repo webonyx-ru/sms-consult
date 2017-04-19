@@ -4,5 +4,7 @@
   "description": "Gulp project builder",
   "author": "qube.kz",
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
   }
 }

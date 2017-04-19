@@ -248,6 +248,107 @@
     });
 
     app.appLoad('dom', function () {
+        var revapi;
+        jQuery(document).ready(function () {
+
+            revapi = jQuery('.fullwidthbanner').revolution({
+                delay: 15000,
+                startwidth: 1170,
+                startheight: 600,
+                hideThumbs: 200,
+                fullWidth: "on"
+            });
+
+        });
+
+        /*-----------------------------------------------------------------------------------*/
+        /*	OWL CAROUSEL
+         /*-----------------------------------------------------------------------------------*/
+        $(document).ready(function () {
+            $("#owl-projects").owlCarousel({
+
+                navigation: false,
+                autoHeight: true,
+                slideSpeed: 600,
+                paginationSpeed: 700,
+                rewindNav: false,
+                singleItem: true,
+                navigationText: ["<i class='icon-left-open-mini'></i>", "<i class='icon-right-open-mini'></i>"]
+
+            });
+
+            $("#owl-blog").owlCarousel({
+                navigation: true,
+                pagination: false,
+                rewindNav: false,
+                items: 4,
+                itemsDesktop: [1200, 4],
+                itemsDesktopSmall: [1024, 3],
+                itemsTablet: [970, 2],
+                itemsMobile: [767, 1],
+                navigationText: ["<i class='icon-left-open-mini'></i>", "<i class='icon-right-open-mini'></i>"]
+            });
+
+            $("#owl-portfolio").owlCarousel({
+                navigation: true,
+                pagination: false,
+                rewindNav: false,
+                items: 3,
+                itemsDesktop: [1200, 3],
+                itemsDesktopSmall: [1024, 3],
+                itemsTablet: [970, 2],
+                itemsMobile: [767, 1],
+                navigationText: ["<i class='icon-left-open-mini'></i>", "<i class='icon-right-open-mini'></i>"]
+            });
+
+            $("#owl-clients").owlCarousel({
+
+                autoPlay: 9000,
+                rewindNav: false,
+                items: 6,
+                itemsDesktop: [1200, 6],
+                itemsDesktopSmall: [1024, 4],
+                itemsTablet: [768, 3],
+                itemsMobile: [480, 2],
+                navigation: false,
+                pagination: false
+
+            });
+
+            $("#owl-gallery").owlCarousel({
+
+                autoPlay: 3000, //Set AutoPlay to 3 seconds
+                pagination: false,
+                rewindNav: false,
+                lazyLoad: true,
+                items: 3,
+                itemsDesktop: [1200, 3],
+                itemsDesktopSmall: [1024, 2],
+                itemsTablet: [970, 2],
+                itemsMobile: [767, 1]
+
+            });
+
+            var owl = $(".owl-portfolio-slider");
+
+            owl.owlCarousel({
+                navigation: false,
+                autoHeight: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+            });
+
+            // Custom Navigation Events
+            $(".slider-next").click(function () {
+                owl.trigger('owl.next');
+            })
+            $(".slider-prev").click(function () {
+                owl.trigger('owl.prev');
+            })
+
+        });
+
         console.log('DOM is loaded! Paste your app code here (Pure JS code).');
         // DOM is loaded! Paste your app code here (Pure JS code).
         // Do not use jQuery here cause external libs do not loads here...

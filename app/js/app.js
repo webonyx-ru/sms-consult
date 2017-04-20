@@ -247,7 +247,37 @@
         // App is loading... Paste your app code here. 4example u can run preloader event here and stop it in action appLoad dom or full
     });
 
+
     app.appLoad('dom', function () {
+
+        $(".js-open-menu").click(function(){
+            if ($(".js-menu").hasClass("js-open")) {
+                $(".js-menu").stop().slideUp(400).removeClass("js-open");
+            } else {
+                $(".js-menu").stop().slideDown(400).addClass("js-open");
+            }
+        });
+
+        var resizeTime;
+        $(window).resize(function(){
+            clearTimeout(resizeTime);
+            resizeTime = setTimeout(function(){
+                var siteWrapper = $(".js-site-wrapper");
+                if (siteWrapper.outerWidth() > 992) {
+                    $(".js-menu").slideDown(10);
+                }
+            },200);
+        });
+
+
+        $(".js-dropdown-toggle").click(function(e){
+            e.preventDefault();
+            var thisParent = $(this).closest(".js-dropdown");
+            thisParent.find(".js-dropdown-menu").stop().slideToggle(400);
+            thisParent.toggleClass("open");
+        });
+
+
         var revapi;
         jQuery(document).ready(function () {
 

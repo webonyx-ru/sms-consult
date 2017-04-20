@@ -188,9 +188,8 @@ h1.post-title {
 
 }
 .lead {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 32px;
-    font-family: 'Roboto Slab', serif;
     font-weight: 300;
     color: #7f7f7f;
 }
@@ -828,4 +827,74 @@ ul.circled li:before {
     font-family: 'fontello-circle';
     color: #fa6c65;
     font-size: 8px;
+}
+
+
+.head-image {
+    max-width: 100%;
+    position: relative;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.2);
+    -moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.2);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.2);
+    overflow: hidden;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+}
+
+
+.page-title {
+    text-transform: none;
+    font-weight: 300;
+    margin: 0;
+}
+
+.head-image.option-3 .page-title {
+    color: #515151;
+    font-size: 22px;
+    display: inline-block;
+    line-height: 1;
+}
+
+.head-image .overlay.light {
+    background: rgba(255,255,255,0.6);
+    padding: 50px 0;
+}
+
+.parallax .section-title, .parallax .section-title span, .parallax .section-title span::before, .parallax p {
+    color: #FFF;
+}
+
+.parallax {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #FFF !important;
+    margin: 0 auto;
+    height: auto;
+    overflow: hidden;
+    padding: 0;
+    background-attachment: fixed;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+}
+
+#first {
+    background-image: url(../images/parallax1.jpg);
+}
+
+
+.parallax .inner {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.services, .services .etabs {
+    text-align: center;
 }

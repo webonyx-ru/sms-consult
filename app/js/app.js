@@ -249,6 +249,33 @@
 
 
     app.appLoad('dom', function () {
+        /*-----------------------------------------------------------------------------------*/
+        /*	TABS
+         /*-----------------------------------------------------------------------------------*/
+        $(document).ready(function () {
+            $('.tabs.services').easytabs({
+                animationSpeed: 300,
+                updateHash: false,
+                cycle: 15000
+            });
+        });
+        $(document).ready(function () {
+            $('.tabs.tabs-top, .tabs.tabs-side').easytabs({
+                animationSpeed: 500,
+                updateHash: false
+            });
+        });
+        /*-----------------------------------------------------------------------------------*/
+        /*	TESTIMONIALS
+         /*-----------------------------------------------------------------------------------*/
+        $(document).ready(function () {
+            $('#testimonials').easytabs({
+                animationSpeed: 500,
+                updateHash: false,
+                cycle: 5000
+            });
+
+        });
 
         $(".js-open-menu").click(function(){
             if ($(".js-menu").hasClass("js-open")) {

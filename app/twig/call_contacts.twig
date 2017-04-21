@@ -1,0 +1,87 @@
+{% extends "layouts/app.twig" %}
+
+{% set header_name = 'call_header' %}
+
+{% block pageTitle %} Контакты {% endblock %}
+
+
+{% block content %}
+    <div class="map">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=XaADd_h2F78j-_scj77O7VNRQ8s9Uomc&amp;width=100%&amp;height=500&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+    </div>
+    <div class="dark-wrapper">
+        <div class="container inner">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1 class="post-title">Написать сообщение</h1>
+                    <p>Что бы написать нам, заполните форму расположенную ниже.</p>
+                    <form action="" method="POST" id="formcccontact">
+                        <input type="text" style="width: 90%;color: #3f8dbf;font-size: 16px;" name="name" placeholder="*Введите ваше имя" required>
+                        <div style="padding-top: 3%;"></div>
+                        <input type="email" style="width: 90%;color: #3f8dbf;font-size: 16px;" name="email" placeholder="*Введите ваш Email" required>
+                        <div style="padding-top: 3%;"></div>
+                        <input type="text" style="width: 90%;color: #3f8dbf;font-size: 16px;" name="subject" placeholder="*Введите тему письма" required>
+                        <div style="padding-top: 3%;"></div>
+                        <textarea style="width: 90%;color: #3f8dbf;font-size: 16px;" name="message" placeholder="Введите текст письма"></textarea>
+                        <div style="padding-top: 3%;"></div>
+                        <div class="g-recaptcha" data-sitekey="6LeQnicTAAAAAOP7zJgRWoYF-k9BWp2qaM5LDPzg"></div>
+                        <div style="padding-top: 3%;"></div>
+                        <input type="submit" value="Отправить">
+                        <div style="padding-top: 3%;"></div>
+                        <div style="dysplay:block;" id="resultOk"></div>
+                    </form>
+                    <!-- /.form-container -->
+                </div>
+                <script type="text/javascript">
+
+                    var ms = $('#formcccontact').serialize();
+                    $.ajax({
+                        type: 'POST',
+                        url: '/call-center/brif/verify.php',
+                        data: $('#formcccontact').serialize(),
+                        success: function(data){
+                            alert(data);
+                        },
+                        error: function(data){
+                            alert(data);
+                        }
+                        return false;
+                    });
+                </script>
+                <!-- /.span8 -->
+                <div style="padding-top: 2%;"></div>
+                <aside class="col-sm-4 sidebar lp20">
+                    <div class="sidebox widget">
+                        <h2>Жангакова Алия</h2>
+                        <h5>Менеджер проектов</h5>
+                        <address>
+                            <abbr title="Phone">Т:</abbr> +7 (727) 356-76-64 вн. 121<br>
+                            <abbr title="Email">E:</abbr> <a href="mailto:aliya.zhangakova@sms-consult.kz">aliya.zhangakova@sms-consult.kz</a>
+                        </address>
+                    </div>
+                    <!-- /.widget -->
+                </aside>
+                <br /><br />
+                <aside class="col-sm-4 sidebar lp20">
+                    <div class="sidebox widget">
+                        <h3>Адрес</h3>
+                        <address>
+                            РК, 050061 г.Алматы <br>
+                            Райымбека, 348 "А" <br>
+                            офис 113,<br />
+                            <abbr title="Phone">Т:</abbr> +7 (727) 356-76-64 вн. 121,124 <br>
+                            <abbr title="Email">E:</abbr> <a href="mailto:cc@sms-consult.kz">cc@sms-consult.kz</a>
+                        </address>
+                    </div>
+                    <!-- /.widget -->
+                </aside>
+                <!-- /.span4 -->
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+{% endblock %}

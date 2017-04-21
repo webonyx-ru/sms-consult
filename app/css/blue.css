@@ -124,7 +124,7 @@ blockquote small {
     color: #3f8dbf;
 }
 ul.circled li:before {
-    color: #3f8dbf;
+    border-color: #3f8dbf;
 }
 .owl-theme .owl-controls.clickable .owl-buttons div:hover {
     border: 1px solid #3f8dbf;

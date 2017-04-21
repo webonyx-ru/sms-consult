@@ -12,7 +12,15 @@
 <body>
     <div class="js-site-wrapper site-wrapper">
         <!-- Header block -->
-        {% include "header.twig" %}
+        {% if header_name == "call_header" %}
+            {% include "call_header.twig" %}
+
+            {% set header_name = 'asd' %}
+
+        {% else %}
+            {% include "header.twig" %}
+        {% endif %}
+
         <!-- Header block end -->
 
         <!-- Block content -->

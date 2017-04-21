@@ -475,7 +475,6 @@ i.contact {
     height: 120px
 }
 .page-title {
-    font-family: 'Roboto Slab', serif;
     text-transform: none;
     font-weight: 300;
 }
@@ -2297,15 +2296,16 @@ ul.circled {
     list-style: none;
 }
 ul.circled li:before {
-    content: '\e800';
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
     margin-right: 10px;
     font-weight: normal;
-    vertical-align: top;
-    padding-top: 1px;
+    vertical-align: middle;
+    margin-bottom: 1px;
     display: inline-block;
-    font-family: 'fontello-circle';
-    color: #fa6c65;
-    font-size: 8px;
+    border: 1px solid #fa6c65;
 }
 /*-----------------------------------------------------------------------------------*/
 /*	OWL CAROUSEL

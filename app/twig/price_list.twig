@@ -1,0 +1,52 @@
+{% extends "layouts/app.twig" %}
+
+{% block pageTitle %} Прайс Лист{% endblock %}
+
+
+{% block content %}
+
+    <div class="head-image option-3" style="background-image: url(images/ptbg9.jpg);">
+        <div class="overlay light">
+            <div class="container">
+                <h1 class="page-title">Прайс-лист</h1>
+            </div>
+        </div>
+    </div>
+    <div class="light-wrapper">
+        <div class="container inner">
+            <h1 class="dropdown">Оплата трафика</h1>
+            <p>Стоимость трафика рассчитывается по итогам отчетного периода (в конце отчетного месяца).
+                Оплата производится за все отправленные сообщения. Одно SMS-сообщение содержит <b>160</b> символов в латинице или <b>70</b> в кириллице.<br />
+                <b> При превышении этого количества символов сообщение разбивается на части, оплачивается каждая часть сообщения.</b>
+            </p>
+            <div class="divide20"></div>
+            <div class="pricing row">
+                <table style="margin-left: 1%;">
+                    <th style="text-align:center;">Исходящий трафик, SMS</th><th colspan="4" align="center">Стоимость 1 SMS, тенге с НДС</th>
+                    <tr><td style="background-image: url('../images/table.png'); width:auto; height: auto;">&nbsp;</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>Beeline</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>Kcell/Activ</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>Tele2</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>Аltel</b></td></tr>
+                    <tr><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>От 1 до 10 000</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">6,0</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">5,5</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">4,0</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">4,5</td></tr>
+                    <tr><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>От 10 001 до 30 000</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">5,9</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">5,4</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">3,8</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">4,3</td></tr>
+                    <tr><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>От 30 001 до 100 000</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">5,8</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">5,3</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">3,6</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">4,1</td></tr>
+                    <tr><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>От 100 001 до 160 000</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">5,7</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">5,2</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">3,4</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">3,9</td></tr>
+                    <tr><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>От 160 001</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">5,5</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">5,1</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">3,3</td><td style="background-image: url('../images/table.png'); width:auto; height: auto;">3,8</td></tr>
+                </table>
+                <!-- /.col-sm-4  -->
+            </div><br />
+            <h3 class="dropdown">Имя отправителя</h3>
+            <p>Аренда существующего имени отправителя MESSAGE <b>бесплатно</b> и <b>без абонентской платы</b> на всех операторах (Beeline, Kcell/Activ, Tele2, Алтел).</p><br />
+
+            <p >Заведение собственного имени отправителя.
+                Beeline, Kcell/Activ, Tele2, Алтел – (до 11 латинских символов/цифр)
+            </p><br />
+            <table >
+                <tr><th style="width: auto; height: auto; border: 1px solid #ccc;"> </th><th style="width:auto; height: auto; border: 1px solid #ccc;"><h3  align="center">Kcell/Activ</h3></th><th style="width:auto; height: auto; border: 1px solid #ccc;"><h3 class="dropdown" align="center">Beeline</h3></th><th style="width:auto; height: auto; border: 1px solid #ccc;"><h3 class="dropdown" align="center">Tele2</h3></th><th style="border: 1px solid #ccc; width:auto; height: auto;"><h3 class="dropdown" align="center">Altel</h3></th></tr>
+                <tr><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>Заведение имени отправителя у оператора </b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;" colspan="4"><b>бесплатно при условии доступности имени отправителя у оператора</b></td></tr>
+                <tr><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>Абонентская плата за 1 имя отправителя, тенге с НДС</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>0</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>10 000</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>10 000</b></td><td style="background-image: url('../images/table.png'); width:auto; height: auto;"><b>10 000</b></td></tr>
+            </table>
+
+            <!-- /.pricing  -->
+        </div>
+    </div>
+
+
+{% endblock %}

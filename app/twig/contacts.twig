@@ -1,0 +1,59 @@
+{% extends "layouts/app.twig" %}
+
+{% block pageTitle %} Контакты {% endblock %}
+
+
+{% block content %}
+    <div class="map">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=XaADd_h2F78j-_scj77O7VNRQ8s9Uomc&amp;width=100%&amp;height=500&amp;z-index=15&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+    </div>
+    <div class="light-wrapper">
+        <div class="container inner">
+            <div class="row">
+                <div class="col-sm-8">
+                    <p>Заполните форму ниже.</p>
+                    <form action="" method="POST" id="form">
+                        Имя: <br /><input type="text" style="width: 90%;color: #3f8dbf;font-size: 16px;" name="name" required>
+                        <div style="padding-top: 3%;"></div>
+                        Email: <br /><input type="email" style="width: 90%;color: #3f8dbf;font-size: 16px;" name="email" required>
+                        <div style="padding-top: 3%;"></div>
+                        Номер телефона(указать несколько номеров можно через ,): <br /><input type="text" style="width: 90%;color: #3f8dbf;font-size: 16px;" name="phone" required>
+                        <div style="padding-top: 3%;"></div>
+                        Тема: <br /><input type="text" style="width: 90%;color: #3f8dbf;font-size: 16px;" name="subject" required>
+                        <div style="padding-top: 3%;"></div>
+                        Текст письма: <br /><textarea style="width: 90%;color: #3f8dbf;font-size: 16px;" name="message" required></textarea>
+                        <div style="padding-top: 3%;"></div>
+                        <div class="g-recaptcha" data-sitekey="6LeQnicTAAAAAOP7zJgRWoYF-k9BWp2qaM5LDPzg"></div>
+                        <div style="padding-top: 3%;"></div>
+                        <input type="submit" class="btn btn-large" value="Отправить">
+                        <div style="padding-top: 3%;"></div>
+                        <div style="dysplay:block;" id="resultOk"></div>
+                    </form>
+                    <!-- /.form-container -->
+                </div>
+
+                <!-- /.span8 -->
+                <aside class="col-sm-4 sidebar lp20">
+                    <div class="sidebox widget">
+                        <h1 class="post-title">Адрес</h1>
+                        <address>
+                            РК 050061 ,г.Алматы<br>
+                            проспект Райымбека, 348 "А" <br>
+                            ТОО "SMS-Consult"(СМС-Консалт),<br />
+                            офис 116,<br />
+                            <abbr title="Phone">Т:</abbr> +7 (727) 356-76-56 <br>
+                            <abbr title="Email">E:</abbr> <a href="mailto:info@sms-consult.kz">info@sms-consult.kz</a>
+                        </address>
+                    </div>
+                    <!-- /.widget -->
+                </aside>
+                <!-- /.span4 -->
+            </div>
+            <!-- /.row -->
+
+        </div>
+    </div>
+
+{% endblock %}
+
+

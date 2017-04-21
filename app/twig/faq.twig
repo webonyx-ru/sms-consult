@@ -1,0 +1,514 @@
+{% extends "layouts/app.twig" %}
+
+{% block pageTitle %} Список услуг {% endblock %}
+
+
+{% block content %}
+    <div class="head-image option-3" style="background-image: url(/images/ptbg11.jpg);">
+        <div class="overlay light">
+            <div class="container">
+                <h1 class="page-title">Часто задаваемые вопросы</h1>
+            </div>
+        </div>
+    </div>
+    <div class="light-wrapper">
+        <div class="container inner">
+
+
+            <div class="row classic-blog">
+                <div class="col-sm-8 content">
+                    <p><b>Нажмите</b> на вопрос, чтобы прочесть ответ.</p>
+
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseOne"> 1. Являются ли sms- и email-рассылки спамом?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Мы не рассылаем спам. Рассылки производятся только на номера и почтовые ящики абонентов, которые дали свое согласие на получение информационных рассылок. Абонент в любой момент может отказаться от получения рассылки.</p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwo"> 2. Я не знаю, как пользоваться личным кабинетом, можно ли этому научиться?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Мы проводим обучение клиентов работе с личным кабинетом для организации рассылок. Обучение проходит по телефону или удалённому доступу через программу.</p></div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseThree"> 3. Я хочу делать персонифицированные рассылки, обращаться к своим клиентам по имени, как это сделать? </a>
+                                </h1>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Вы можете вставлять в сообщения любые данные, например обращение, имя, номер договора и т.д. Для этого необходимо добавить эти данные в базу и указать в сообщении место, в которое будет подставлено значение из базы.</p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseFour"> 4. Откуда берутся базы для рассылок? </a>
+                                </h1>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Мы не покупаем и не продаем базы мобильных телефонов или email-адресов. Клиенты приходят к нам с собственными клиентскими базами и в любой момент готовы подтвердить, что база собрана легальным путем и абоненты действительно дали свое согласие на получение рассылки. Со своей стороны, мы гарантируем конфиденциальность и сохранность данных наших клиентов, ваши базы не попадут в третьи руки.</p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseFive"> 5. У меня есть своя система (программа, сайт), могу ли я настроить автоматическую отправку сообщений? </a>
+                                </h1>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Да, вы можете настроить интеграцию вашей системы и отправлять сообщения, не пользуясь веб-кабинетом. Отправка sms-сообщений осуществляется следующими методами: SMPP, XML и DB-Gate. Отправка email-сообщений происходит с помощью E-mail Service API.</p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseSix"> 6. Я хочу планировать рассылки на несколько дней вперед, можно ли планировать дату и время рассылки? </a>
+                                </h1>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Вы можете запланировать рассылку на конкретную дату и время. Также, возможна отправка автоматических сообщений, таких, как поздравление с днем рождения или напоминание о сроке окончания договора. Для этого необходимо указать в базе конкретные даты для отправки сообщения.</p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseSeven"> 7. Как я могу начать делать рассылки? </a>
+                                </h1>
+                            </div>
+                            <div id="collapseSeven" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Вам необходимо связаться с нашими менеджерами по телефону: 8 (727) 356-76-56 вн.208, подписать договор и получить доступ к личному кабинету для проведения рассылок.</p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseEight"> 8. Сколько стоит sms-рассылка по моей базе? Сколько стоит email-рассылка по моей базе? </a>
+                                </h1>
+                            </div>
+                            <div id="collapseEight" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Ознакомиться с ценами на услуги sms- и email-рассылок можно в разделе <a href="price.php">"Прайс-лист"</a>. Узнать подробности можно у наших менеджеров по телефону: 8 (727) 356-76-56 вн.210.</p></div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseNine"> 9. Нужно ли мне покупать GSM-модем и специальное ПО для того, чтобы пользоваться сервисом? </a>
+                                </h1>
+                            </div>
+                            <div id="collapseNine" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Нет, не нужно. Сервис работает через Интернет, доступ осуществляется через любой распространенный браузер
+                                        или  путем бесплатной интеграции SMS-модуля в информационную систему. Вы оплачиваете только трафик.</p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTen"> 10. На какие номера можно слать сообщения? </a>
+                                </h1>
+                            </div>
+                            <div id="collapseTen" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Вы можете отправлять сообщения на номера мобильных телефонов сетей GSM и CDMA(Kcell/Activ, Beeline, Tele2, Altel (Dalacom/Pathword)).</p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseEleven"> 11. В каком формате в систему записываются номера сотовых телефонов? </a>
+                                </h1>
+                            </div>
+                            <div id="collapseEleven" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Номера сотовых телефонов записываются в международном формате, например 77013334455 (где 7 код страны - РК, 701 префикс оператора связи, 3334455 номер абонента). В Интернет-кабинете реализован функционал обработки базы абонентов и приведение номеров к международному формату.</p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwelve"> 12. Можно ли сортировать абонентов, чтобы делать рассылки по группам? </a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwelve" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Система предусматривает создание групп абонентов, например, группа "Клиенты" и группа "Партнеры".
+                                        Выбрав группу абонентов, можно сделать им рассылку. Кроме того, можно создать иерархию групп, т.е., к примеру, в группе "Клиенты" создать подгруппу "VIP Клиенты" и т.д. Есть также возможность делать рассылки по определенным параметрам. При рассылке можно указать определенные критерии,
+                                        объединяющие абонентов из нескольких групп (например, указать пол или возраст абонентов, которым будет осуществляться рассылка).</p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseThirteen"> 13. Как посчитать эффективность SMS-рассылки?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseThirteen" class="panel-collapse collapse">
+                                <div class="panel-body"><p>Чтобы измерить эффективность смс-рассылки, еще на этапе планирования вам необходимо определить что вы хотите получить от смс-рассылки:
+                                    <ul>
+                                        <li>- звонки?</li>
+                                        <li>- заходы на сайт?</li>
+                                        <li>- увеличение среднего чека?</li>
+                                        <li>- покупки?</li>
+                                    </ul>
+                                    Когда вы определитесь с ключевыми показателями, посчитайте соотношение доставленных смс и количество людей, которые совершили целевое действие (позвонили, сделали покупку, зашли на сайт).
+                                    Хороший показатель, по которому многие компании меряют эффективность рассылок – процент отписок.
+                                    </p></div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseFourteen"> 14. Насколько обычно плохи базы телефонов/e-mail/прочих контактов?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseFourteen" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Все зависит от того, как вы собираете базу. Если ваши клиенты заполняют форму на сайте, то ошибок будет меньше.
+                                        Если вы используете бумажные анкеты в торговом зале, то здесь процент ошибок достаточно велик? и может доходить до 25%. Именно поэтому мы и создали функцию исправления ошибок.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseFiveten"> 15. Смогу я обратно выгрузить контакты из базы после правок?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseFiveten" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Да, вы сможете ее экспортировать на свой компьютер.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseSixteen"> 16. А не украдёте ли вы мою базу?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseSixteen" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Нет! В этом нет никакого смысла. Мы соблюдаем закон сами и следим за тем, чтобы его соблюдали наши клиенты.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseSeventeen"> 17. Могу я добавлять свои поля?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseSeventeen" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Да, вы можете добавлять в свою базу любые поля в любых количествах.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseEightteen"> 18. За недоставленные SMS я тоже плачу? А почему?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseEightteen" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Да, плата за недоставленные смс взимается, так как сообщение в любом случае проходит через шлюз. Но вы можете уменьшить процент недоставленных смс, если воспользуетесь функцией удаления нерабочих номеров.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseNineteen"> 19. Откуда я знаю, что вы мне не врёте и SMS действительно ушли?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseNineteen" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Система автоматически рассылает смс и автоматически формирует отчеты по рассылкам. Во вкладке «отчеты» вы всегда сможете посмотреть, скольким контактам были доставлены сообщения.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwenty"> 20. Как устроена отписка?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwenty" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Вы можете сами добавить контакты в черный список или разместить в сообщении или письме специальную ссылку для отписки. При переходе по ссылке контакт автоматически попадет в черный список.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwentyone"> 21. Если клиент отписывается от чужой рассылки — он и от моей отпишется?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwentyone" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Нет. У каждого нашего пользователя – свой личный кабинет, где он работает со своей собственной базой.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwentytwo"> 22. Можно ли синхронизировать со своими базами контактов? Насколько автоматически?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwentytwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Да, это возможно. Вы можете вести свою базу контактов прямо в личном кабинете. Кроме того, вы можете интегрировать ваш сайт или программу с сервисом SMS-Consult  и работать с базой, не заходя на сервис.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwentythree"> 23. А вы убираете дубли?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwentythree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Да, дубли убираются автоматически при импорте базы в личный кабинет.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwentyfour"> 24. Можно ли устроить отправку по расписанию?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwentyfour" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Да, вы можете запланировать рассылку на определенное время и дату.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwentyfive"> 25. Что у вас вообще с безопасностью отправки сообщений? Пароли могу рассылать, например?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwentyfive" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Да, мы уделяем огромное внимание безопасности. Наши сервера расположены в защищенном дата-центре. Работа с личным кабинетом и API осуществляется через защищенный протокол HTTPS.
+                                        Наше промышленное программное обеспечение разработано на надежный программно-аппаратных комплексах, таких как, MS SQL Server, IIS, ASP.NET. У нас работают сертифицированные Microsoft разработчики и системные администраторы.
+                                        Наш сервис  используют более 1000 клиентов, среди них и крупные банковские структуры у который требования к безопасности превыше всего.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwentysix"> 26. Всё равно буду сравнивать с конкурентами. А вы сравнивали?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwentysix" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Сравнение хороший стимул для развития любого сервиса, сообщите нам чего нет у нас мы будем,  благодарны и предоставим вам обновленный сервис с 20% скидкой.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwentyseven"> 27. Как мне проверить, что ваш сервис действительно работает?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwentyseven" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Когда вы регистрируетесь в сервисе, мы автоматически начисляем на ваш счет 10 смс. Этого достаточно, чтобы отправить, своим друзьям и знакомым.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwentyeight"> 28. Будут ли мне приходить ответы? Если да — как с ними работать?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwentyeight" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Если вы используете буквенный номер для смс-рассылок, то клиенты не смогут позвонить или отправить на него смс! В этом случае контакты для обратной связи указываются в тексте.<br />
+                                        В случае если вам необходимы ответные сообщения вам необходимо сформировать заявку в личном кабинете, наши менеджеры свяжутся с вами и организуют всю необходимую работу по приобретению короткого номера,
+                                        а также займутся технической организацией сервиса.<br />
+                                        Как работать с ответами? Точно так же, как вы обычно работаете с входящими звонками и письмами. Только не забудьте предупредить своих секретарей и рассказать им суть акции.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTwentynine"> 29. Я могу сразу оплатить и начать рассылать сообщения? Или мне нужно будет оформлять какие-то бумаги?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTwentynine" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Вам необходимо будет подписать договор с нами и начать осуществлять рассылку, согласно договору мы вам выставим счет на оплату.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTheerty"> 30. А вы можете как-нибудь сами загнать мою базу в свою систему? Я ничего в этом не понимаю.</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTheerty" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Мы с удовольствием поможем вам и вашим сотрудникам научиться пользоваться сервисом. Звоните! <b>+7 (727) 356-76-56</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTheertyone"> 31. Какую рассылку можно сделать для моего бизнеса? У меня, допустим, интернет-магазин — есть ли для него смысл в SMS-рассылке?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTheertyone" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Здесь нужно разбираться с каждым конкретным случаем. Интернет-магазины могут рассылать смс-подтверждения заказов, сообщения о приходе товара на склад, а также информацию об акциях.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTheertytwo"> 32. Покажите мне побольше примеров шаблонных рассылок. А то что-то ничего в голову не приходит, не могу придумать шаблон для себя.</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTheertytwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Вы можете просмотреть вкладку «Идеи маркетинговых акций» на нашем сайте. Если у вас возникнут вопросы по составлению текста, обратитесь к нашим менеджерам.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTheertythree"> 33. Чем вы лучше других сервисов?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTheertythree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Ни один российский или казахстанский провайдер не может предложить того качества услуг, которое можем предложить мы, как уникальных сервис смс-рассылок SMS-Consult обладающий более 10 летним беграундом работы с операторами РК.
+                                        Мы же в свою очередь, можем обеспечивать не просто высокое качество наших услуг, а предложить обеспечить уникальную интеграцию с корпоративной системой нашего партнера. Доказательством, наших  слов служат наши текущие корпоративные партнеры такие как, АО «ЭйрАстана», АО «АТФ», АО «KCell».
+                                        <br />
+                                        Помимо всего, наш сервис обладает уникальными функциями:
+                                    <ul>
+                                        <li>Умный импорт</li>
+                                        <li>Таргетирование</li>
+                                        <li>Персонализация</li>
+                                        <li>Настраиваемы права доступа</li>
+                                        <li>Черный список и отписка от СМС рассылок</li>
+                                    </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">
+                                    <a data-toggle="collapse" class="panel-toggle" data-parent="#accordion" href="#collapseTheertyfour"> 34. Как можно получить скидку?</a>
+                                </h1>
+                            </div>
+                            <div id="collapseTheertyfour" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        Вы можете получить скидку за объем. Но еще мы даем скидки всем, кто готов делится кейсами смс-рассылок, и рассказывать о своем опыте в смс-маркетинге.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divide70"></div>
+                    <h3>Не смогли найти ответ на ваш вопрос?</h3>
+                    Задайте его нам, заполнив форму ниже, или позвоните  <b>+7 (727) 356-76-56</b>
+                    <div class="divide20"></div>
+                    <div class="form-container">
+                        <form action="" method="POST" id="form">
+                            Имя :<br /><input type="text" name="name" style="width: 90%;color: #3f8dbf;font-size: 16px;" required>
+                            <div style="padding-top: 3%;"></div>
+                            Email :<br /><input type="email" name="email" style="width: 90%;color: #3f8dbf;font-size: 16px;" required>
+                            <div style="padding-top: 3%;"></div>
+                            Номер телефона(указать несколько номеров можно через ,): <br /><input type="text" style="width: 90%;color: #3f8dbf;font-size: 16px;" name="phone" required>
+                            <div style="padding-top: 3%;"></div>
+                            Тема письма :<br /><input type="text" name="subject" style="width: 90%;color: #3f8dbf;font-size: 16px;" required>
+                            <div style="padding-top: 3%;"></div>
+                            Текст письма :<br /><textarea name="message" style="width: 90%;color: #3f8dbf;font-size: 16px;" required></textarea>
+                            <div style="padding-top: 3%;"></div>
+                            <div class="g-recaptcha" data-sitekey="6LeQnicTAAAAAOP7zJgRWoYF-k9BWp2qaM5LDPzg"></div>
+                            <div style="padding-top: 3%;"></div>
+                            <input type="submit" class="btn btn-large" value="Отправить">
+                            <div style="padding-top: 3%;"></div>
+                            <span></span>
+                        </form>
+                    </div>
+                    <!-- /.form-container -->
+
+                </div>
+                <!-- /.col-sm-8 .content -->
+
+                <!-- /.col-sm-4 .sidebar -->
+            </div>
+            <!-- /.row .classic-blog -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.light-wrapper -->
+
+{% endblock %}

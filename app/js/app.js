@@ -250,40 +250,118 @@
 
     app.appLoad('dom', function () {
         /*-----------------------------------------------------------------------------------*/
+        /*	GO TO TOP
+         /*-----------------------------------------------------------------------------------*/
+        ! function (a, b, c) {
+            a.fn.scrollUp = function (b) {
+                a.data(c.body, "scrollUp") || (a.data(c.body, "scrollUp", !0), a.fn.scrollUp.init(b))
+            }, a.fn.scrollUp.init = function (d) {
+                var e = a.fn.scrollUp.settings = a.extend({}, a.fn.scrollUp.defaults, d),
+                    f = e.scrollTitle ? e.scrollTitle : e.scrollText,
+                    g = a("<a/>", {
+                        id: e.scrollName,
+                        href: "#top",
+                        title: f
+                    }).appendTo("body");
+                e.scrollImg || g.html(e.scrollText), g.css({
+                    display: "none",
+                    position: "fixed",
+                    zIndex: e.zIndex
+                }), e.activeOverlay && a("<div/>", {
+                    id: e.scrollName + "-active"
+                }).css({
+                    position: "absolute",
+                    top: e.scrollDistance + "px",
+                    width: "100%",
+                    borderTop: "1px dotted" + e.activeOverlay,
+                    zIndex: e.zIndex
+                }).appendTo("body"), scrollEvent = a(b).scroll(function () {
+                    switch (scrollDis = "top" === e.scrollFrom ? e.scrollDistance : a(c).height() - a(b).height() - e.scrollDistance, e.animation) {
+                        case "fade":
+                            a(a(b).scrollTop() > scrollDis ? g.fadeIn(e.animationInSpeed) : g.fadeOut(e.animationOutSpeed));
+                            break;
+                        case "slide":
+                            a(a(b).scrollTop() > scrollDis ? g.slideDown(e.animationInSpeed) : g.slideUp(e.animationOutSpeed));
+                            break;
+                        default:
+                            a(a(b).scrollTop() > scrollDis ? g.show(0) : g.hide(0))
+                    }
+                }), g.click(function (b) {
+                    b.preventDefault(), a("html, body").animate({
+                        scrollTop: 0
+                    }, e.topSpeed, e.easingType)
+                })
+            }, a.fn.scrollUp.defaults = {
+                scrollName: "scrollUp",
+                scrollDistance: 600,
+                scrollFrom: "top",
+                scrollSpeed: 600,
+                easingType: "linear",
+                animation: "fade",
+                animationInSpeed: 400,
+                animationOutSpeed: 400,
+                scrollText: "Scroll to top",
+                scrollTitle: !1,
+                scrollImg: !1,
+                activeOverlay: !1,
+                zIndex: 2147483647
+            }, a.fn.scrollUp.destroy = function (d) {
+                a.removeData(c.body, "scrollUp"), a("#" + a.fn.scrollUp.settings.scrollName).remove(), a("#" + a.fn.scrollUp.settings.scrollName + "-active").remove(), a.fn.jquery.split(".")[1] >= 7 ? a(b).off("scroll", d) : a(b).unbind("scroll", d)
+            }, a.scrollUp = a.fn.scrollUp
+        }(jQuery, window, document);
+
+        $(document).ready(function () {
+            $.scrollUp({
+                scrollName: 'scrollUp', // Element ID
+                scrollDistance: 600, // Distance from top/bottom before showing element (px)
+                scrollFrom: 'top', // 'top' or 'bottom'
+                scrollSpeed: 600, // Speed back to top (ms)
+                easingType: 'linear', // Scroll to top easing (see http://easings.net/)
+                animation: 'fade', // Fade, slide, none
+                animationInSpeed: 400, // Animation in speed (ms)
+                animationOutSpeed: 400, // Animation out speed (ms)
+                scrollText: '<i class="icon-up-open"></i>', // Text for element, can contain HTML
+                scrollTitle: false, // Set a custom <a> title if required. Defaults to scrollText
+                scrollImg: false, // Set true to use image
+                activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+                zIndex: 1001 // Z-Index for the overlay
+            });
+        });
+
+        /*-----------------------------------------------------------------------------------*/
         /*	TOOLTIP
          /*-----------------------------------------------------------------------------------*/
-        $(document).ready(function () {
-            if ($("[rel=tooltip]").length) {
-                $("[rel=tooltip]").tooltip();
-            }
-        });
+
+        if ($("[rel=tooltip]").length) {
+            $("[rel=tooltip]").tooltip();
+        }
+
         /*-----------------------------------------------------------------------------------*/
         /*	TABS
          /*-----------------------------------------------------------------------------------*/
-        $(document).ready(function () {
-            $('.tabs.services').easytabs({
-                animationSpeed: 300,
-                updateHash: false,
-                cycle: 15000
-            });
+
+        $('.tabs.services').easytabs({
+            animationSpeed: 300,
+            updateHash: false,
+            cycle: 15000
         });
-        $(document).ready(function () {
-            $('.tabs.tabs-top, .tabs.tabs-side').easytabs({
-                animationSpeed: 500,
-                updateHash: false
-            });
+
+
+        $('.tabs.tabs-top, .tabs.tabs-side').easytabs({
+            animationSpeed: 500,
+            updateHash: false
         });
+
         /*-----------------------------------------------------------------------------------*/
         /*	TESTIMONIALS
          /*-----------------------------------------------------------------------------------*/
-        $(document).ready(function () {
-            $('#testimonials').easytabs({
-                animationSpeed: 500,
-                updateHash: false,
-                cycle: 5000
-            });
 
+        $('#testimonials').easytabs({
+            animationSpeed: 500,
+            updateHash: false,
+            cycle: 5000
         });
+
 
         $(".js-open-menu").click(function(){
             if ($(".js-menu").hasClass("js-open")) {
@@ -299,17 +377,40 @@
             resizeTime = setTimeout(function(){
                 var siteWrapper = $(".js-site-wrapper");
                 if (siteWrapper.outerWidth() > 992) {
-                    $(".js-menu").slideDown(10);
+                    $(".js-menu").show();
+                } else if ((siteWrapper.outerWidth() < 992) && (!$(".js-menu").hasClass("js-open")) ) {
+                    $(".js-menu").hide(10);
                 }
-            },200);
+            },100);
         });
 
 
+        var headerHeight = $(".header-top").outerHeight(),
+            headerNavHeight = $(".header__navigation").outerHeight();
+
+        $(window).scroll(function(){
+            var siteWrapper = $(".js-site-wrapper");
+            if (siteWrapper.outerWidth() > 992) {
+                var windowScrollTop = $(window).scrollTop();
+                if (windowScrollTop > headerHeight) {
+                    $(".header").addClass("fixed");
+                    $(".header-fixed-line").css("height", headerNavHeight );
+                } else {
+                    $(".header").removeClass("fixed");
+                    $(".header-fixed-line").css("height", 0 );
+                }
+            }
+        });
+
         $(".js-dropdown-toggle").click(function(e){
-            e.preventDefault();
-            var thisParent = $(this).closest(".js-dropdown");
-            thisParent.find(".js-dropdown-menu").stop().slideToggle(400);
-            thisParent.toggleClass("open");
+            var siteWrapper = $(".js-site-wrapper");
+            if (siteWrapper.outerWidth() < 992) {
+                e.preventDefault();
+                var thisParent = $(this).closest(".js-dropdown");
+                thisParent.find(".js-dropdown-menu").stop().slideToggle(400);
+                thisParent.toggleClass("open");
+            }
+
         });
 
 
@@ -329,90 +430,20 @@
         /*-----------------------------------------------------------------------------------*/
         /*	OWL CAROUSEL
          /*-----------------------------------------------------------------------------------*/
-        $(document).ready(function () {
-            $("#owl-projects").owlCarousel({
+        $("#owl-clients").owlCarousel({
 
-                navigation: false,
-                autoHeight: true,
-                slideSpeed: 600,
-                paginationSpeed: 700,
-                rewindNav: false,
-                singleItem: true,
-                navigationText: ["<i class='icon-left-open-mini'></i>", "<i class='icon-right-open-mini'></i>"]
-
-            });
-
-            $("#owl-blog").owlCarousel({
-                navigation: true,
-                pagination: false,
-                rewindNav: false,
-                items: 4,
-                itemsDesktop: [1200, 4],
-                itemsDesktopSmall: [1024, 3],
-                itemsTablet: [970, 2],
-                itemsMobile: [767, 1],
-                navigationText: ["<i class='icon-left-open-mini'></i>", "<i class='icon-right-open-mini'></i>"]
-            });
-
-            $("#owl-portfolio").owlCarousel({
-                navigation: true,
-                pagination: false,
-                rewindNav: false,
-                items: 3,
-                itemsDesktop: [1200, 3],
-                itemsDesktopSmall: [1024, 3],
-                itemsTablet: [970, 2],
-                itemsMobile: [767, 1],
-                navigationText: ["<i class='icon-left-open-mini'></i>", "<i class='icon-right-open-mini'></i>"]
-            });
-
-            $("#owl-clients").owlCarousel({
-
-                autoPlay: 9000,
-                rewindNav: false,
-                items: 6,
-                itemsDesktop: [1200, 6],
-                itemsDesktopSmall: [1024, 4],
-                itemsTablet: [768, 3],
-                itemsMobile: [480, 2],
-                navigation: false,
-                pagination: false
-
-            });
-
-            $("#owl-gallery").owlCarousel({
-
-                autoPlay: 3000, //Set AutoPlay to 3 seconds
-                pagination: false,
-                rewindNav: false,
-                lazyLoad: true,
-                items: 3,
-                itemsDesktop: [1200, 3],
-                itemsDesktopSmall: [1024, 2],
-                itemsTablet: [970, 2],
-                itemsMobile: [767, 1]
-
-            });
-
-            var owl = $(".owl-portfolio-slider");
-
-            owl.owlCarousel({
-                navigation: false,
-                autoHeight: true,
-                slideSpeed: 300,
-                paginationSpeed: 400,
-                singleItem: true
-            });
-
-            // Custom Navigation Events
-            $(".slider-next").click(function () {
-                owl.trigger('owl.next');
-            })
-            $(".slider-prev").click(function () {
-                owl.trigger('owl.prev');
-            })
+            autoPlay: 9000,
+            rewindNav: false,
+            items: 6,
+            itemsDesktop: [1200, 6],
+            itemsDesktopSmall: [1024, 4],
+            itemsTablet: [768, 3],
+            itemsMobile: [480, 2],
+            navigation: false,
+            pagination: false
 
         });
+
 
         console.log('DOM is loaded! Paste your app code here (Pure JS code).');
         // DOM is loaded! Paste your app code here (Pure JS code).

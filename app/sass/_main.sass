@@ -7,6 +7,14 @@ html, body
     min-width: 320px
     overflow: hidden
 
+.header.fixed
+    .header__navigation
+        position: fixed
+        left: 0
+        width: 100%
+        top: 0
+        z-index: 200
+
 .header-top
     display: flex
     justify-content: space-between
@@ -209,7 +217,10 @@ html, body
     .header-top__info
         font-size: 20px
 
-@media screen and (max-width: 992px)
+@media screen and (max-width: 991px)
+    .header-fixed-line
+        height: 0 !important
+
     .header-top__hamburger
         display: block
         
@@ -266,7 +277,7 @@ html, body
         padding: 12px 0
         color: #cacaca
         border-bottom: 1px solid rgba(0, 0, 0, 0.1)
-        &:focus, &:active
+        &:focus, &:active, &:hover
             color: #cacaca
         
     .menu-dropdown
@@ -292,7 +303,7 @@ html, body
         margin: 0
 
 
-@media screen and (max-width: 768px)
+@media screen and (max-width: 767px)
     .mobile-hidden
         display: none
 
